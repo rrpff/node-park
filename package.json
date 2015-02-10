@@ -1,0 +1,20 @@
+{
+  "name": "park",
+  "version": "1.0.0",
+  "description": "CLI for getting and setting `package.json` values. Useful for quickly changing values and copying values to the keyboard.",
+  "keywords": [
+    "npm",
+    "cli",
+    "package.json"
+  ],
+  "author": "Richard Foster <richard@rpf.me> (http://rpf.me/)",
+  "license": "MIT",
+  "dependencies": {
+    "find-root": "^0.1.1"
+  },
+  "main": "index.js",
+  "bin": {
+    "park": "bin/cli.js"
+  },
+  "preferGlobal": "true"
+}
