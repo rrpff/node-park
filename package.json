@@ -7,6 +7,9 @@
     "cli",
     "package.json"
   ],
+  "scripts": {
+    "test": "cd test/ && mocha . && cd .."
+  },
   "author": "Richard Foster <richard@rpf.me> (http://rpf.me/)",
   "license": "MIT",
   "dependencies": {
@@ -16,5 +19,9 @@
   "bin": {
     "park": "bin/cli.js"
   },
-  "preferGlobal": "true"
+  "preferGlobal": "true",
+  "devDependencies": {
+    "chai": "^1.10.0"
+  },
+  "someOtherNumber": "43"
 }

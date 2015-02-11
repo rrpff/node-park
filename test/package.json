@@ -1,0 +1,6 @@
+{
+  "description": "This is a fake package.json for testing.",
+  "foo": "bar",
+  "someNumber": 23,
+  "someOtherNumber": "86"
+}
