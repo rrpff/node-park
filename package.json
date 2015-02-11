@@ -1,6 +1,6 @@
 {
   "name": "park",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": " CLI and API for getting and setting `package.json` values. Useful for quickly changing values or copying values to the keyboard.",
   "keywords": [
     "npm",
