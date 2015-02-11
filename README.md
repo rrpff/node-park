@@ -90,6 +90,10 @@ pkg.set("version", "1.0.1").on("finish", function(){
 });
 ```
 
+#### pkg.save()
+
+Manually save `package.json` as `pkg.obj`. Useful if you want to edit the object manually.
+
 #### pkg.path
 
 Full path of the `package.json` file.
