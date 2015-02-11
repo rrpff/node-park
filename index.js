@@ -24,7 +24,12 @@ module.exports = function(dir){
 	park.set = function(key, val){
 		// Set value on object key
 		park.obj[key] = val;
+		return park.save();
+	}
 
+	// Save package.json as prettified JSON from park.obj
+	// Returns writeable stream
+	park.save = function(){
 		// Pretty JSON buffer
 		var json = new Buffer(JSON.stringify(park.obj, null, 2));
 
@@ -33,7 +38,7 @@ module.exports = function(dir){
 		stream.end();
 
 		// Returns a writeable stream
-		return stream;
+		return stream;		
 	}
 
 	// Get closest package.json to dir, recursing upwards
