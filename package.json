@@ -13,8 +13,7 @@
   "author": "Richard Foster <richard@rpf.me> (http://rpf.me/)",
   "license": "MIT",
   "dependencies": {
-    "find-root": "^0.1.1",
-    "yargs": "^2.3.0"
+    "find-root": "^0.1.1"
   },
   "main": "index.js",
   "bin": {

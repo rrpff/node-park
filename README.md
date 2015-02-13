@@ -29,11 +29,26 @@ Especially useful if you pipe it to your clipboard. For example, I use this all 
 $ park description | clip # clip is Windows. Mac and Linux users use pbcopy and xclip respectively.
 ```
 
+`park` accepts object strings as keys for getting nested values.
+
+For example, `scripts.test` will access the `test` key of `scripts`.
+
+```bash
+$ park scripts.test
+# => cd test/ && mocha . && cd ..
+```
+
 #### Set a value in `package.json`
 
 ```bash
 $ park main park.js
 # => package.json contents
+```
+
+Or with an object string:
+
+```bash
+$ park scripts.test mocha
 ```
 
 #### Stream out the `package.json` object
@@ -80,6 +95,12 @@ Get a key from `package.json`.
 pkg.get("version"); // => "1.0.0"
 ```
 
+You can use object strings in the API too.
+
+```js
+var chaiVersion = pkg.get("devDependencies.chai");
+```
+
 #### pkg.set(key, val)
 
 Set a key in `package.json` as val and save the file. Returns a writeable Stream.
@@ -88,6 +109,12 @@ Set a key in `package.json` as val and save the file. Returns a writeable Stream
 pkg.set("version", "1.0.1").on("finish", function(){
 	console.log("Saved!");
 });
+```
+
+Or with an object string.
+
+```js
+var stream = pkg.set("bin.park", "bin/cli.js");
 ```
 
 #### pkg.save()
