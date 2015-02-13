@@ -27,6 +27,14 @@ describe("Park as a CLI", function(){
 			});
 		});
 
+		it("should accept an object string as a key", function(done){
+			exec("park yet.another.number", function(err, out){
+				var num = parseInt(out, 10);
+				num.should.be.a("number");
+				done();
+			});
+		});
+
 	});
 
 	describe("with two arguments", function(){
@@ -37,6 +45,15 @@ describe("Park as a CLI", function(){
 				var obj = JSON.parse(out);
 				obj.should.be.a("object");
 				parseInt(obj.someOtherNumber, 10).should.equal(num);
+				done();
+			});
+		});
+
+		it("should accept an object string as a key", function(){
+			var num = Math.ceil(Math.random() * 100);
+			exec("park yet.another.number " + num, function(err, out){
+				var obj = JSON.parse(out);
+				parseInt(obj.yet.another.number, 10).should.equal(num);
 				done();
 			});
 		});

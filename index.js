@@ -1,5 +1,6 @@
 var findRoot = require("find-root"),
 	Path = require("path"),
+	utils = require("./lib/utils"),
 	fs = require("fs");
 
 // dir should be the dir you want to find the
@@ -15,15 +16,17 @@ module.exports = function(dir){
 	}
 
 	// Get value from package.json
+	// If key contains dots, it assumes object string syntax.
 	park.get = function(key){
-		return park.obj[key];
+		return utils.getSubObject(park.obj, key);
 	}
 
 	// Set value on package object and save
+	// If key contains dots, it assumes object string syntax.
 	// Returns writeable stream
 	park.set = function(key, val){
 		// Set value on object key
-		park.obj[key] = val;
+		utils.setSubObject(park.obj, key, val);
 		return park.save();
 	}
 

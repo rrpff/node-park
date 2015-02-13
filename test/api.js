@@ -39,6 +39,11 @@ describe("Park as a module", function(){
 			description.should.be.a("string");
 		});
 
+		it("should traverse objects if key contains dots (eg object.key.key)", function(){
+			var number = pkg.get("here.is.a.number");
+			number.should.be.a("number");
+		});
+
 	});
 
 	describe("#set", function(){
@@ -50,6 +55,13 @@ describe("Park as a module", function(){
 
 		it("should change the value of key", function(){
 			pkg.get("someNumber").should.equal(newNum);
+		});
+
+		it("should traverse objects if key has dots", function(){
+			var newObjNum = Math.ceil(Math.random() * 100);
+
+			pkg.set("here.is.a.number", newObjNum);
+			pkg.get("here.is.a.number").should.equal(newObjNum);
 		});
 
 		it("should return a writeable stream", function(){
