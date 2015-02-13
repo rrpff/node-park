@@ -34,7 +34,7 @@ $ park description | clip # clip is Windows. Mac and Linux users use pbcopy and 
 For example, `scripts.test` will access the `test` key of `scripts`.
 
 ```bash
-$ park scripts.test
+$ park "scripts.test"
 # => cd test/ && mocha . && cd ..
 ```
 
@@ -48,7 +48,7 @@ $ park main park.js
 Or with an object string:
 
 ```bash
-$ park scripts.test mocha
+$ park "scripts.test" "mocha"
 ```
 
 #### Stream out the `package.json` object
